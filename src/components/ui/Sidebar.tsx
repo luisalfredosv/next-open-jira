@@ -13,7 +13,7 @@ import InboxOutlined from "@mui/icons-material/InboxOutlined";
 import MailOutlineOutlined from "@mui/icons-material/MailOutlineOutlined";
 import { UiContext } from "@/contexts/iu/UiContext";
 
-const menuItems = ["Inbox", "Starred", "Send Email"];
+const menuItems = ["Inicio", "Salir"];
 
 export const Sidebar = () => {
 	const { sideMenuOpen, closeSideMenu } = useContext(UiContext);
