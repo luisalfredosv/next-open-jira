@@ -8,20 +8,29 @@ import {
 	Typography,
 } from "@mui/material";
 import { FC, DragEvent, useContext } from "react";
+import styles from "./EntryCard.module.css";
+import { useRouter } from "next/router";
+import { timeAgo } from "@/utils/utils";
 
 interface Props {
 	entry: Entry;
 }
 export const EntryCard: FC<Props> = ({ entry }) => {
 	const { startDragging, endDragging } = useContext(UiContext);
+	const router = useRouter();
 
 	const onDragStart = (event: DragEvent) => {
 		event.dataTransfer.setData("identification", entry._id);
+		event.currentTarget.className = styles["dragged-entry"];
 		startDragging();
 	};
 
 	const onDragEnd = () => {
 		endDragging();
+	};
+
+	const gotToEdit = () => {
+		router.push(`/entries/${entry._id}`);
 	};
 
 	return (
@@ -32,6 +41,7 @@ export const EntryCard: FC<Props> = ({ entry }) => {
 			draggable={true}
 			onDragStart={onDragStart}
 			onDragEnd={onDragEnd}
+			onClick={gotToEdit}
 		>
 			<CardActionArea>
 				<CardContent>
@@ -50,7 +60,9 @@ export const EntryCard: FC<Props> = ({ entry }) => {
 						paddingRight: 2,
 					}}
 				>
-					<Typography variant='body2'>Hace 30 min </Typography>
+					<Typography variant='body2'>
+						Hace {timeAgo(entry.createAt)}{" "}
+					</Typography>
 				</CardActions>
 			</CardActionArea>
 		</Card>

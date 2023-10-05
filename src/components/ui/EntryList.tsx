@@ -64,7 +64,7 @@ export const EntryList: FC<Props> = ({ status }) => {
 			>
 				<List
 					sx={{
-						opacity: isDragging ? 0.2 : 1,
+						opacity: isDragging ? 0.1 : 1,
 						transition: "all .3s",
 					}}
 				>

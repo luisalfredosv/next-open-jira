@@ -5,5 +5,8 @@ export default function handler(
 	req: NextApiRequest,
 	res: NextApiResponse<any>
 ) {
-	res.status(HttpStatusCode.OK_200).json({ name: "John Doe" });
+	const { message = "Bad request" } = req.query;
+	res.status(HttpStatusCode.BAD_REQUEST_400).json({
+		message,
+	});
 }

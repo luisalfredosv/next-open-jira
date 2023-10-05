@@ -13,10 +13,13 @@
 		"@emotion/styled": "^11.11.0",
 		"@mui/icons-material": "^5.14.11",
 		"@mui/material": "^5.14.11",
+		"axios": "^1.5.1",
+		"date-fns": "^2.30.0",
+		"mongoose": "^7.5.3",
 		"next": "latest",
+		"notistack": "^3.0.1",
 		"react": "latest",
-		"react-dom": "latest",
-		"uuid": "^9.0.1"
+		"react-dom": "latest"
 	},
 	"devDependencies": {
 		"@types/node": "latest",
